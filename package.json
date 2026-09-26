@@ -1,0 +1,10 @@
+{
+    "name": "dobby-chat",
+    "version": "0.1.0",
+    "private": true,
+    "description": "POC: chat con Dobby (Harry Potter) usando Gemini AI, para ComicSansCon.",
+    "type": "module",
+    "scripts": {
+        "test": "echo \"Etapa 6: acá vamos a configurar Vitest\" && exit 1"
+    }
+}

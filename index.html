@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Chatea con Dobby</title>
+        <link rel="stylesheet" href="./src/index.css" />
+    </head>
+    <body>
+        <!-- Nav principal, visible en las 3 vistas. -->
+        <nav class="mainNav">
+            <a class="mainNav__link" href="/">Home</a>
+            <a class="mainNav__link" href="/chat">Chat</a>
+            <a class="mainNav__link" href="/about">About</a>
+        </nav>
+
+        <!-- Punto de montaje: acá el JS inyecta la vista activa. -->
+        <div id="app"></div>
+
+        <!-- ES Modules nativos del navegador: sin bundler. -->
+        <script type="module" src="./src/main.js"></script>
+    </body>
+</html>
