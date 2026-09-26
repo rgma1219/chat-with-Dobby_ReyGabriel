@@ -1,4 +1,4 @@
-import { getDobbyReply } from "../services/mockDobbyApi.js";
+import { getDobbyReply } from "../services/aiClient.js";
 import { debounce, wait } from "../services/debounce.js";
 import { getUserMessage } from "../ui/messages.js";
 
