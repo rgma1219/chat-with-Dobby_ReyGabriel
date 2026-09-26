@@ -1,361 +1,397 @@
 /* ==========================================================================
-   0. Variables de tema (design tokens)
-   --------------------------------------------------------------------------
-   Centralizamos colores/espaciados acá para poder:
-   1) mantener consistencia visual en toda la app, y
-   2) dejar la arquitectura lista para el modo oscuro/claro (extra credit,
-      Etapa 8), que solo va a necesitar sobreescribir estas variables bajo
-      un selector [data-theme="dark"], sin tocar el resto del CSS.
+    0. Variables de tema (design tokens)
    ========================================================================== */
 
 :root {
-  /* Paleta: verde bosque (Dobby / elfos) + mostaza cálido (libertad / medias) */
-  --color-bg: #f5f7f2;
-  --color-surface: #ffffff;
-  --color-border: #dde3d6;
+    /* Paleta: verde bosque (Dobby / elfos) + mostaza cálido (libertad / medias) */
+    --color-bg: #f5f7f2;
+    --color-surface: #ffffff;
+    --color-border: #dde3d6;
 
-  --color-text: #1b2a1f;
-  --color-text-muted: #55645a;
+    --color-text: #1b2a1f;
+    --color-text-muted: #55645a;
 
-  --color-primary: #2f5233;
-  --color-primary-hover: #23401f;
-  --color-on-primary: #ffffff;
+    --color-primary: #2f5233;
+    --color-primary-hover: #23401f;
+    --color-on-primary: #ffffff;
 
-  --color-accent: #d9a441;
+    --color-accent: #d9a441;
 
-  --color-bubble-character-bg: #eef2ea;
-  --color-bubble-character-text: var(--color-text);
-  --color-bubble-user-bg: var(--color-primary);
-  --color-bubble-user-text: var(--color-on-primary);
+    --color-bubble-character-bg: #eef2ea;
+    --color-bubble-character-text: var(--color-text);
+    --color-bubble-user-bg: var(--color-primary);
+    --color-bubble-user-text: var(--color-on-primary);
 
-  --color-error-bg: #fdecea;
-  --color-error-text: #a4302a;
-  --color-error-border: #f3c8c4;
+    --color-error-bg: #fdecea;
+    --color-error-text: #a4302a;
+    --color-error-border: #f3c8c4;
 
-  --radius-sm: 0.5rem;
-  --radius-md: 0.75rem;
-  --radius-lg: 1rem;
+    --radius-sm: 0.5rem;
+    --radius-md: 0.75rem;
+    --radius-lg: 1rem;
 
-  --space-1: 0.5rem;
-  --space-2: 0.75rem;
-  --space-3: 1rem;
-  --space-4: 1.5rem;
-  --space-5: 2rem;
+    --space-1: 0.5rem;
+    --space-2: 0.75rem;
+    --space-3: 1rem;
+    --space-4: 1.5rem;
+    --space-5: 2rem;
 
-  --font-base:
-    system-ui,
-    -apple-system,
-    "Segoe UI",
-    sans-serif;
+    --font-base: system-ui, -apple-system, "Segoe UI", sans-serif;
 }
 
-/* Etapa 8 (extra credit): acá va a vivir el bloque
-   :root[data-theme="dark"] { ... } que invierte estas variables
-   para el toggle de modo oscuro/claro. */
-
 /* ==========================================================================
-   1. Reset mínimo
+    1. Reset mínimo
    ========================================================================== */
 
 *,
 *::before,
 *::after {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 html {
-  font-size: 16px;
+    font-size: 16px;
 }
 
 body {
-  font-family: var(--font-base);
-  font-size: 1rem;
-  line-height: 1.5;
-  color: var(--color-text);
-  background: var(--color-bg);
+    font-family: var(--font-base);
+    font-size: 1rem;
+    line-height: 1.5;
+    color: var(--color-text);
+    background: var(--color-bg);
 }
 
 a {
-  color: inherit;
+    color: inherit;
 }
 
 img {
-  max-width: 100%;
-  display: block;
+    max-width: 100%;
+    display: block;
 }
 
 /* ==========================================================================
-   2. Navegación principal
+    2. Navegación principal
    ========================================================================== */
 
 .mainNav {
-  display: flex;
-  gap: var(--space-3);
-  padding: var(--space-2) var(--space-3);
-  background: var(--color-primary);
-  border-bottom: 1px solid var(--color-primary-hover);
+    display: flex;
+    gap: var(--space-3);
+    padding: var(--space-2) var(--space-3);
+    background: var(--color-primary);
+    border-bottom: 1px solid var(--color-primary-hover);
 }
 
 .mainNav__link {
-  color: var(--color-on-primary);
-  text-decoration: none;
-  font-weight: 500;
-  padding: 0.25rem 0.5rem;
-  border-radius: var(--radius-sm);
-  transition: background 0.15s;
+    color: var(--color-on-primary);
+    text-decoration: none;
+    font-weight: 500;
+    padding: 0.25rem 0.5rem;
+    border-radius: var(--radius-sm);
+    transition: background 0.15s;
 }
 
 .mainNav__link:hover,
 .mainNav__link:focus-visible {
-  background: var(--color-primary-hover);
+    background: var(--color-primary-hover);
 }
 
 /* ==========================================================================
-   3. Botones y bloques compartidos entre vistas (Home / About / 404)
+    3. Botones y bloques compartidos entre vistas (Home / About / 404)
    ========================================================================== */
 
 .btn {
-  display: inline-block;
-  padding: 0.75rem 1.25rem;
-  font-family: inherit;
-  font-size: 1rem;
-  font-weight: 500;
-  text-decoration: none;
-  border: 0;
-  border-radius: var(--radius-md);
-  cursor: pointer;
+    display: inline-block;
+    padding: 0.75rem 1.25rem;
+    font-family: inherit;
+    font-size: 1rem;
+    font-weight: 500;
+    text-decoration: none;
+    border: 0;
+    border-radius: var(--radius-md);
+    cursor: pointer;
 }
 
 .btn--primary {
-  color: var(--color-on-primary);
-  background: var(--color-primary);
+    color: var(--color-on-primary);
+    background: var(--color-primary);
 }
 
 .btn--primary:hover,
 .btn--primary:focus-visible {
-  background: var(--color-primary-hover);
+    background: var(--color-primary-hover);
 }
 
 .view {
-  max-width: 40rem;
-  margin: 0 auto;
-  padding: var(--space-4) var(--space-3);
+    max-width: 40rem;
+    margin: 0 auto;
+    padding: var(--space-4) var(--space-3);
 }
 
 .view__title {
-  font-size: 1.5rem;
-  margin-bottom: var(--space-2);
+    font-size: 1.5rem;
+    margin-bottom: var(--space-2);
 }
 
 .view__text {
-  color: var(--color-text-muted);
-  margin-bottom: var(--space-2);
+    color: var(--color-text-muted);
+    margin-bottom: var(--space-2);
 }
 
 /* ==========================================================================
-   4. Vista Home: hero de presentación de Dobby
+    4. Vista Home: hero de presentación de Dobby
    ========================================================================== */
 
 .hero {
-  text-align: center;
+    text-align: center;
 }
 
 .hero__badge {
-  display: inline-block;
-  padding: 0.25rem 0.75rem;
-  margin-bottom: var(--space-3);
-  background: var(--color-accent);
-  color: var(--color-text);
-  border-radius: 999px;
-  font-size: 0.85rem;
-  font-weight: 600;
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    margin-bottom: var(--space-3);
+    background: var(--color-accent);
+    color: var(--color-text);
+    border-radius: 999px;
+    font-size: 0.85rem;
+    font-weight: 600;
 }
 
 .hero__title {
-  font-size: 1.75rem;
-  margin-bottom: var(--space-2);
+    font-size: 1.75rem;
+    margin-bottom: var(--space-2);
 }
 
 .hero__lead {
-  color: var(--color-text-muted);
-  margin-bottom: var(--space-4);
+    color: var(--color-text-muted);
+    margin-bottom: var(--space-4);
 }
 
 .hero__card {
-  text-align: left;
-  background: var(--color-surface);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-lg);
-  padding: var(--space-3);
-  margin-bottom: var(--space-4);
+    text-align: left;
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    padding: var(--space-3);
+    margin-bottom: var(--space-4);
 }
 
 .hero__card p + p {
-  margin-top: var(--space-1);
+    margin-top: var(--space-1);
 }
 
 /* ==========================================================================
-   5. Vista Chat (layout mobile-first)
+    5. Vista Chat (layout mobile-first)
    ========================================================================== */
 
 .chatApp {
-  display: flex;
-  flex-direction: column;
-  height: calc(100vh - 3.25rem); /* resta la altura aprox. del nav */
-  background: var(--color-surface);
+    display: flex;
+    flex-direction: column;
+    height: calc(100vh - 3.25rem); /* resta la altura aprox. del nav */
+    background: var(--color-surface);
 }
 
 .chatHeader {
-  padding: var(--space-3);
-  border-bottom: 1px solid var(--color-border);
-  background: var(--color-surface);
+    padding: var(--space-3);
+    border-bottom: 1px solid var(--color-border);
+    background: var(--color-surface);
 }
 
 .chatHeader__title {
-  font-size: 1.25rem;
-  font-weight: 600;
+    font-size: 1.25rem;
+    font-weight: 600;
 }
 
 .chatHeader__subtitle {
-  font-size: 0.875rem;
-  color: var(--color-text-muted);
+    font-size: 0.875rem;
+    color: var(--color-text-muted);
 }
 
 .chatMessages {
-  flex: 1;
-  overflow-y: auto;
-  padding: var(--space-3);
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-2);
-  overscroll-behavior-y: contain;
+    flex: 1;
+    overflow-y: auto;
+    padding: var(--space-3);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+    overscroll-behavior-y: contain;
 }
 
 .message {
-  max-width: 85%;
-  padding: 0.65rem 0.9rem;
-  border-radius: var(--radius-lg);
-  word-wrap: break-word;
+    max-width: 85%;
+    padding: 0.65rem 0.9rem;
+    border-radius: var(--radius-lg);
+    word-wrap: break-word;
 }
 
 .message--character {
-  align-self: flex-start;
-  background: var(--color-bubble-character-bg);
-  color: var(--color-bubble-character-text);
-  border: 1px solid var(--color-border);
+    align-self: flex-start;
+    background: var(--color-bubble-character-bg);
+    color: var(--color-bubble-character-text);
+    border: 1px solid var(--color-border);
 }
 
 .message--user {
-  align-self: flex-end;
-  background: var(--color-bubble-user-bg);
-  color: var(--color-bubble-user-text);
+    align-self: flex-end;
+    background: var(--color-bubble-user-bg);
+    color: var(--color-bubble-user-text);
 }
 
-/* Reservado para la Etapa 8 (extra credit): timestamp debajo de cada burbuja. */
 .message__time {
-  display: block;
-  margin-top: 0.25rem;
-  font-size: 0.7rem;
-  opacity: 0.7;
+    display: block;
+    margin-top: 0.25rem;
+    font-size: 0.7rem;
+    opacity: 0.7;
+}
+
+/* Burbuja "Dobby está escribiendo..." / countdown de reintento. */
+.message--typing {
+    font-style: italic;
+    opacity: 0.75;
+    animation: typing-pulse 1.2s ease-in-out infinite;
+}
+
+@keyframes typing-pulse {
+    0%,
+    100% {
+        opacity: 0.45;
+    }
+    50% {
+        opacity: 0.9;
+    }
+}
+
+/* Burbuja de error, centrada, con su propio botón de reintento. */
+.message--error {
+    align-self: center;
+    max-width: 90%;
+    text-align: center;
+    background: var(--color-error-bg);
+    color: var(--color-error-text);
+    border: 1px solid var(--color-error-border);
+    font-size: 0.9rem;
+}
+
+.message__retry {
+    display: block;
+    margin: 0.5rem auto 0;
+    padding: 0.3rem 0.85rem;
+    background: var(--color-error-text);
+    color: #ffffff;
+    border: 0;
+    border-radius: var(--radius-sm);
+    font: inherit;
+    font-size: 0.85rem;
+    cursor: pointer;
+}
+
+.message__retry:hover {
+    opacity: 0.9;
 }
 
 .chatComposer {
-  display: flex;
-  gap: var(--space-1);
-  padding: var(--space-2);
-  border-top: 1px solid var(--color-border);
-  background: var(--color-surface);
+    display: flex;
+    gap: var(--space-1);
+    padding: var(--space-2);
+    border-top: 1px solid var(--color-border);
+    background: var(--color-surface);
 }
 
 .chatComposer__input {
-  flex: 1;
-  min-width: 0;
-  padding: 0.75rem;
-  font-family: inherit;
-  font-size: 1rem;
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-md);
-  outline: none;
+    flex: 1;
+    min-width: 0;
+    padding: 0.75rem;
+    font-family: inherit;
+    font-size: 1rem;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    outline: none;
 }
 
 .chatComposer__input:focus-visible {
-  border-color: var(--color-primary);
+    border-color: var(--color-primary);
 }
 
 .chatComposer__send {
-  padding: 0.75rem 1.1rem;
-  font-family: inherit;
-  font-size: 1rem;
-  font-weight: 500;
-  color: var(--color-on-primary);
-  background: var(--color-primary);
-  border: 0;
-  border-radius: var(--radius-md);
-  cursor: pointer;
-  white-space: nowrap;
+    padding: 0.75rem 1.1rem;
+    font-family: inherit;
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--color-on-primary);
+    background: var(--color-primary);
+    border: 0;
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    white-space: nowrap;
 }
 
 .chatComposer__send:hover {
-  background: var(--color-primary-hover);
+    background: var(--color-primary-hover);
+}
+
+.chatComposer__input:disabled,
+.chatComposer__send:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
 }
 
 /* ==========================================================================
-   6. Vista About
+    6. Vista About
    ========================================================================== */
 
 .aboutList {
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-1);
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-1);
 }
 
 .aboutList__item {
-  padding: var(--space-2);
-  background: var(--color-surface);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-md);
+    padding: var(--space-2);
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
 }
 
 /* ==========================================================================
-   7. Tablet: 768px en adelante
+    7. Tablet: 768px en adelante
    ========================================================================== */
 
 @media (min-width: 768px) {
-  .view {
-    padding: var(--space-5) var(--space-3);
-  }
+    .view {
+        padding: var(--space-5) var(--space-3);
+    }
 
-  .chatHeader,
-  .chatComposer {
-    padding: var(--space-4);
-  }
+    .chatHeader,
+    .chatComposer {
+        padding: var(--space-4);
+    }
 
-  .chatMessages {
-    padding: var(--space-4);
-    gap: var(--space-3);
-  }
+    .chatMessages {
+        padding: var(--space-4);
+        gap: var(--space-3);
+    }
 
-  .message {
-    max-width: 70%;
-  }
+    .message {
+        max-width: 70%;
+    }
 }
 
 /* ==========================================================================
-   8. Desktop: 1024px en adelante
+    8. Desktop: 1024px en adelante
    ========================================================================== */
 
 @media (min-width: 1024px) {
-  .chatApp {
-    max-width: 56rem;
-    margin: 0 auto;
-    border-left: 1px solid var(--color-border);
-    border-right: 1px solid var(--color-border);
-  }
+    .chatApp {
+        max-width: 56rem;
+        margin: 0 auto;
+        border-left: 1px solid var(--color-border);
+        border-right: 1px solid var(--color-border);
+    }
 
-  .message {
-    max-width: 55%;
-  }
+    .message {
+        max-width: 55%;
+    }
 }
