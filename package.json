@@ -5,6 +5,6 @@
     "description": "POC: chat con Dobby (Harry Potter) usando Gemini AI, para ComicSansCon.",
     "type": "module",
     "scripts": {
-        "test": "echo \"Etapa 6: acá vamos a configurar Vitest\" && exit 1"
+        "test": "echo \"Error: no test specified\" && exit 1"
     }
 }

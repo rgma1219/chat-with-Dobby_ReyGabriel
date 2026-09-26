@@ -1,4 +1,4 @@
-// Vista Home.
+// Vista Home
 
 export function renderHome() {
     const app = document.querySelector("#app");

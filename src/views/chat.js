@@ -1,4 +1,4 @@
-// Vista Chat.
+// Vista Chat
 
 export function renderChat() {
     const app = document.querySelector("#app");
