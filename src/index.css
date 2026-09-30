@@ -141,45 +141,105 @@ img {
 }
 
 /* ==========================================================================
-    4. Vista Home: hero de presentación de Dobby
+   4. Vista Home: hero de presentación de Dobby
    ========================================================================== */
 
 .hero {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-3);
+    align-items: center;
+    justify-items: center;
     text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: var(--space-4) var(--space-3);
 }
 
-.hero__badge {
-    display: inline-block;
-    padding: 0.25rem 0.75rem;
-    margin-bottom: var(--space-3);
-    background: var(--color-accent);
-    color: var(--color-text);
-    border-radius: 999px;
-    font-size: 0.85rem;
-    font-weight: 600;
-}
-
+/* Encabezado */
 .hero__title {
-    font-size: 1.75rem;
-    margin-bottom: var(--space-2);
+    font-size: clamp(2rem, 5vw, 2.75rem);
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: var(--space-1);
+    grid-column: 1 / -1;
 }
 
 .hero__lead {
     color: var(--color-text-muted);
-    margin-bottom: var(--space-4);
+    font-size: 1.125rem;
+    line-height: 1.5;
+    margin-bottom: var(--space-3);
+    grid-column: 1 / -1;
+    max-width: 60ch;
 }
 
+/* Imagen con estilo de tarjeta / marco destacados */
+.hero__image {
+    width: 100%;
+    max-width: 280px;
+    height: auto;
+    object-fit: cover;
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--color-border);
+    background-color: var(--color-surface);
+    box-shadow:
+        0 10px 25px -5px rgba(0, 0, 0, 0.1),
+        0 8px 10px -6px rgba(0, 0, 0, 0.1);
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.hero__image:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 30px -10px rgba(0, 0, 0, 0.15);
+}
+
+/* Tarjeta descriptiva */
 .hero__card {
     text-align: left;
     background: var(--color-surface);
     border: 1px solid var(--color-border);
     border-radius: var(--radius-lg);
-    padding: var(--space-3);
-    margin-bottom: var(--space-4);
+    padding: var(--space-4);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    line-height: 1.6;
+}
+
+.hero__card p {
+    margin: 0;
 }
 
 .hero__card p + p {
-    margin-top: var(--space-1);
+    margin-top: var(--space-2);
+}
+
+/* Botón Call To Action */
+.hero .btn--primary {
+    grid-column: 1 / -1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--space-3) var(--space-4);
+    font-weight: 600;
+    font-size: 1.05rem;
+    border-radius: var(--radius-lg);
+    text-decoration: none;
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        background-color 0.2s ease;
+    margin-top: var(--space-2);
+}
+
+.hero .btn--primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+.hero .btn--primary:active {
+    transform: translateY(0);
 }
 
 /* ==========================================================================

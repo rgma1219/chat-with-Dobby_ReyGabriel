@@ -5,8 +5,8 @@ export function renderHome() {
 
     app.innerHTML = `
     <section class="view view--home hero">
-      <span class="hero__badge">POC · ComicSansCon</span>
       <h1 class="hero__title">Chateá con Dobby</h1>
+      <img class="hero__image" src="./assets/dobby-final.png" alt="Dobby el elfo libre" />
       <p class="hero__lead">
         El elfo doméstico libre más leal de todo el mundo mágico.
       </p>

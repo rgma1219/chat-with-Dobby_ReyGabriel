@@ -5,9 +5,13 @@
     "description": "POC: chat con Dobby (Harry Potter) usando Gemini AI, para ComicSansCon.",
     "type": "module",
     "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1"
+        "test": "vitest run",
+        "test:watch": "vitest"
     },
     "dependencies": {
         "@google/genai": "^2.24.0"
+    },
+    "devDependencies": {
+        "vitest": "^5.0.3"
     }
 }

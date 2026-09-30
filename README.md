@@ -25,7 +25,7 @@ Su personalidad completa está definida en `src/services/prompts.js` (el system 
 - **JavaScript vanilla** con ES Modules nativos del navegador — sin frameworks ni bundler en el frontend.
 - **Routing SPA** con History API (`src/router.js` + `src/navigation.js`).
 - **Google Gemini** (`@google/genai`), consumido de forma segura mediante una **Vercel Serverless Function** (`api/chat.js`) que actúa de proxy — la API key nunca se expone en el cliente.
-- **Vitest** para tests unitarios (en progreso, ver sección de Testing).
+- **Vitest** para tests unitarios de transformación de payloads, cliente HTTP y mock de la API.
 - **Vercel** para el deployment (estático + función serverless), sin paso de build.
 
 ## Requisitos y ejecución local
@@ -72,11 +72,20 @@ Va a pedir loguearse con Vercel la primera vez. Una vez levantado, la app queda 
 
 ## Cómo ejecutar los tests
 
+Instalá las dependencias del proyecto y ejecutá la suite:
+
 ```bash
+npm install
 npm test
 ```
 
-> 🚧 La suite de Vitest todavía se está terminando de escribir — esta sección se completa apenas esté lista.
+Vitest descubre automáticamente los archivos `*.test.js`. Los tests del cliente simulan `fetch` y los del mock controlan sus temporizadores, por lo que no requieren una API key ni hacen llamadas de red.
+
+Para ejecutar los tests en modo watch mientras desarrollás:
+
+```bash
+npm run test:watch
+```
 
 ## Cómo desplegar a Vercel
 
@@ -109,5 +118,6 @@ Cómo se usó:
 - **Decisiones técnicas revisadas críticamente, no aceptadas a ciegas**: por ejemplo, se corrigió a la IA cuando propuso usar `@google/generative-ai` (paquete discontinuado desde 2025) por el SDK vigente `@google/genai`, y se ajustó el modelo usado a un alias (`gemini-flash-lite-latest`) para evitar depender de una versión con fecha de baja anunciada.
 - **Revisión manual del código generado**: se leyó, se probó y se corrigieron manualmente comentarios y estilo antes de cada commit (se sacaron referencias internas a "etapas" del código fuente, se simplificó el README intermedio, etc.).
 - **Uso previsto para los tests unitarios** (Vitest): pendiente de completar.
+- **Tests unitarios**: se usa Vitest para validar la transformación de mensajes, las respuestas del mock y el cliente HTTP con respuestas simuladas.
 
 La lógica de negocio, la revisión de cada entrega y las decisiones finales fueron responsabilidad del desarrollador del proyecto.
