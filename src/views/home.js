@@ -6,10 +6,12 @@ export function renderHome() {
     app.innerHTML = `
     <section class="view view--home hero">
       <h1 class="hero__title">Chateá con Dobby</h1>
-      <img class="hero__image" src="./assets/dobby-final.png" alt="Dobby el elfo libre" />
+      <img class="hero__image" src="./assets/dobby.png" alt="Dobby el elfo libre" />
       <p class="hero__lead">
         El elfo doméstico libre más leal de todo el mundo mágico.
       </p>
+
+      <a class="btn btn--primary" href="/chat">Empezar a chatear con Dobby</a>
 
       <article class="hero__card">
         <p>
@@ -26,7 +28,6 @@ export function renderHome() {
         </p>
       </article>
 
-      <a class="btn btn--primary" href="/chat">Empezar a chatear con Dobby</a>
     </section>
   `;
 }

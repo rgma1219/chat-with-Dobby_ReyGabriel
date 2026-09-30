@@ -33,8 +33,8 @@ Su personalidad completa está definida en `src/services/prompts.js` (el system 
 ### 1. Clonar e instalar dependencias
 
 ```bash
-git clone <url-de-este-repo>
-cd dobby-chat
+git clone https://github.com/rgma1219/chat-with-Dobby_ReyGabriel
+cd chat-with-Dobby_ReyGabriel
 npm install
 ```
 
@@ -100,11 +100,21 @@ Si algo falla, revisá los logs de la función en el dashboard de Vercel (proyec
 
 ## Capturas de pantalla
 
-> 🚧 Pendiente: agregar capturas de las 3 vistas (Home, Chat, About) una vez desplegado.
+### Home
 
-## Aplicación desplegada
+![Captura de pantalla Vista Home](./assets/capturas/1.png)
 
-> 🚧 Pendiente: agregar el link público de Vercel una vez desplegado.
+### Chat
+
+![Captura de pantalla Vista Chat](./assets/capturas/2.png)
+
+### About
+
+![Captura de pantalla Vista About](./assets/capturas/3.png)
+
+### Demo
+
+![Captura de pantalla Demo](./assets/capturas/demo.gif)
 
 ## Registro de uso de IA en el proyecto
 
@@ -117,7 +127,6 @@ Cómo se usó:
 - **Generación de código por etapa**: estructura base, routing SPA, UI del chat (primero contra un mock local, después contra la API real), capa de fetch/transformación de datos, y la Serverless Function de Gemini.
 - **Decisiones técnicas revisadas críticamente, no aceptadas a ciegas**: por ejemplo, se corrigió a la IA cuando propuso usar `@google/generative-ai` (paquete discontinuado desde 2025) por el SDK vigente `@google/genai`, y se ajustó el modelo usado a un alias (`gemini-flash-lite-latest`) para evitar depender de una versión con fecha de baja anunciada.
 - **Revisión manual del código generado**: se leyó, se probó y se corrigieron manualmente comentarios y estilo antes de cada commit (se sacaron referencias internas a "etapas" del código fuente, se simplificó el README intermedio, etc.).
-- **Uso previsto para los tests unitarios** (Vitest): pendiente de completar.
 - **Tests unitarios**: se usa Vitest para validar la transformación de mensajes, las respuestas del mock y el cliente HTTP con respuestas simuladas.
 
 La lógica de negocio, la revisión de cada entrega y las decisiones finales fueron responsabilidad del desarrollador del proyecto.

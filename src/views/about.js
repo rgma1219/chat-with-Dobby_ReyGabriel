@@ -27,8 +27,7 @@ export function renderAbout() {
           través de una Vercel Serverless Function que actúa de proxy.
         </li>
         <li class="aboutList__item">
-          <strong>Testing:</strong> Vitest, con mocking de fetch para no
-          depender de red real en los tests.
+          <strong>Créditos:</strong> Desarrollado por Gabriel Rey. El personaje de Dobby pertenece a J.K. Rowling y Warner Bros.
         </li>
       </ul>
     </section>

@@ -169,7 +169,6 @@ img {
     color: var(--color-text-muted);
     font-size: 1.125rem;
     line-height: 1.5;
-    margin-bottom: var(--space-3);
     grid-column: 1 / -1;
     max-width: 60ch;
 }
@@ -230,7 +229,6 @@ img {
         transform 0.2s ease,
         box-shadow 0.2s ease,
         background-color 0.2s ease;
-    margin-top: var(--space-2);
 }
 
 .hero .btn--primary:hover {
